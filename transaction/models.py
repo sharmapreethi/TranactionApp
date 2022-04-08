@@ -6,8 +6,8 @@ class Transaction(models.Model):
     sender = models.IntegerField()
     receiver = models.TextField()
     amount = models.FloatField()
-    status = models.CharField(max_length=100, default='Suceess UPI')
+    status = models.CharField(max_length=100, default='Success Transaction')
 
     def __str__(self):
-        return self.status
+        return "%s %s" %(self.id, self.status)
 

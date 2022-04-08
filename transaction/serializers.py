@@ -7,6 +7,7 @@ class TransactionSerializer(serializers.Serializer):
     sender = serializers.CharField(required=False, allow_blank=True, max_length=100)
     receiver = serializers.CharField(style={'base_template': 'textarea.html'})
     amount = serializers.FloatField(required=False)
+    status = serializers.CharField(required=False)
 
     def create(self, validated_data):
         """
