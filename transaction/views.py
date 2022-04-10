@@ -13,7 +13,7 @@ def transaction_list(request):
     if request.method == 'GET':
         transactions = Transaction.objects.all()
         serializer = TransactionSerializer(transactions, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return JsonResponse(serializer.data, safe=False, status=200)
 
     elif request.method == 'POST':
         data = JSONParser().parse(request)
@@ -47,4 +47,4 @@ def transaction_detail(request, pk):
 
     if request.method == 'GET':
         serializer = TransactionSerializer(transaction)
-        return JsonResponse(serializer.data)
+        return JsonResponse(serializer.data, status=200)
